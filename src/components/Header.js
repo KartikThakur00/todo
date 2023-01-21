@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Header() {
   return (
-    <div>Header</div>
+    <div className='todo-text-input'>
+            <textarea></textarea>
+    </div>
   )
 }
