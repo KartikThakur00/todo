@@ -39,7 +39,7 @@ input {
 }
 textarea{
   font-family: Roboto,system,-apple-system,BlinkMacSystemFont,Helvetica Neue,Segoe UI,Arial,sans-serif;
-  resize: none;
+  resize: none;  font-weight: 600;
   line-height: 1.5;
   min-height: 5em;
   max-height: 50vh;
@@ -54,7 +54,7 @@ textarea{
   position: absolute;
   right: 18px;
   bottom: -18px;
-  background: #42b883;
+  background: #42b8ac;
   color: #fff;
   border: none;
   border-radius: 50%;
@@ -62,4 +62,5 @@ textarea{
   height: 36px;
   font-size: 24px;
   text-align: center;
+  cursor: pointer;
 }
