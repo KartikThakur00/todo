@@ -17,6 +17,10 @@ function App() {
       id: nanoid(),
       titleData: "Demo element",
       contentData: "this is a demo element"
+    },{
+      id: nanoid(),
+      titleData: "Demo element",
+      contentData: "this is a demo element"
     }])
 
   useEffect(() => {
@@ -49,7 +53,7 @@ function App() {
 
   function handleDelete(todoId) {
     console.log(todoId)
-    setTodo(prevTodo => (prevTodo.filter(todo => todo.id != todoId)))
+    setTodo(prevTodo => (prevTodo.filter(todo => todo.id !== todoId)))
   }
 
   const todoList = todo.map(x => (
