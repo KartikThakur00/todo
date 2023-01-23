@@ -10,7 +10,7 @@ function App() {
     content: ""
   })
   const [todo, setTodo] = useState(
-    JSON.parse(window.localStorage.getItem("todo")) ||
+    JSON.parse(localStorage.getItem("todo")) ||
     [{
       titleData: "Demo element",
       contentData: "this is a demo element"
@@ -18,9 +18,9 @@ function App() {
   console.log("hello")
 
   useEffect(() => {
-    window.localStorage.setItem("todo", JSON.stringify(todo))
+    localStorage.setItem("todo", JSON.stringify(todo))
     console.log("useEffect running")
-  }, [todo])
+  },[todo])
 
   function handleInputChange(e) {
     const { name, value } = e.target
@@ -32,11 +32,11 @@ function App() {
 
   function handleAdd(e) {
     setTodo(prevTodo => {
-      prevTodo.unshift({
+      const arr=[{
         titleData: text.title,
         contentData: text.content
-      })
-      return prevTodo
+      },...prevTodo]
+      return arr
     })
     setText({
       title: "",
