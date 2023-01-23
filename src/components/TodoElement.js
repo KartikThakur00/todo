@@ -1,14 +1,12 @@
-import React from 'react'
-
-export default function TodoElement() {
+export default function TodoElement(props) {
     return (
         <div className='todo-element'>
             <h1 >
-                Title
+                {props.t}
             </h1>
-            <p><pre>
-
-            </pre></p>
+           <p>
+        {props.c}
+            </p>
         </div>
     )
 }
