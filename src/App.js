@@ -30,7 +30,7 @@ function App() {
     }))
   }
 
-  function handleAdd(e) {
+  function handleAdd() {
     setTodo(prevTodo => {
       const arr=[{
         titleData: text.title,
