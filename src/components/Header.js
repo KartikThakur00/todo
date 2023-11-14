@@ -1,23 +1,48 @@
-import React from "react"
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addTodo } from "../features/todo/todoSlice";
 
-export default function Header(props) {
+export default function Header() {
+  
+  const [input, setInput] = useState({
+    title: "",
+    content: "",
+  });
+  const dispatch = useDispatch();
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setInput((prevInput) => ({
+      ...prevInput,
+      [name]: value,
+    }));
+  };
+
+  const handleAdd = () => {
+    dispatch(addTodo(input));
+    setInput({
+      title: "",
+      content: "",
+    });
+  };
+
   return (
-    <div className='todo-text-input'>
+    <div className="todo-text-input">
       <input
         name="title"
         type="text"
-        placeholder='Title'
-        onChange={props.handler}
-        value={props.tT}
-         />
+        placeholder="Title"
+        onChange={handleInputChange}
+        value={input.title}
+      />
       <textarea
-        name='content'
-        placeholder='Take a note...'
+        name="content"
+        placeholder="Take a note..."
         spellCheck="false"
-        onChange={props.handler}
-        value={props.tD}
-        ></textarea>
-      <button onClick={props.addHandler}>+</button>
+        onChange={handleInputChange}
+        value={input.content}
+      ></textarea>
+      <button  disabled={!(input.content || input.title)} style={!(input.content || input.title)?{background : "#ec7171"}:{}} onClick={handleAdd}>+</button>
     </div>
-  )
+  );
 }
